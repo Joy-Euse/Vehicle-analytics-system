@@ -1,0 +1,215 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "Rusizi"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.504, 28.8], [-2.3, 28.8], [-2.3, 29.2], [-2.504, 29.2], [-2.504, 28.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Nyaruguru"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.864, 29.0], [-2.4, 29.0], [-2.4, 29.5], [-2.864, 29.5], [-2.864, 29.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Nyamagabe"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.864, 29.3], [-2.4, 29.3], [-2.4, 29.8], [-2.864, 29.8], [-2.864, 29.3]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Huye"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.8, 29.5], [-2.35, 29.5], [-2.35, 30.0], [-2.8, 30.0], [-2.8, 29.5]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Gisagara"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.95, 29.4], [-2.6, 29.4], [-2.6, 29.9], [-2.95, 29.9], [-2.95, 29.4]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Nyanza"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.85, 29.7], [-2.4, 29.7], [-2.4, 30.2], [-2.85, 30.2], [-2.85, 29.7]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Nyarugenge"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.15, 29.8], [-1.7, 29.8], [-1.7, 30.3], [-2.15, 30.3], [-2.15, 29.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Kicukiro"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.15, 29.8], [-1.7, 29.8], [-1.7, 30.3], [-2.15, 30.3], [-2.15, 29.8]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Gasabo"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.15, 30.0], [-1.7, 30.0], [-1.7, 30.5], [-2.15, 30.5], [-2.15, 30.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Muhanga"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.15, 30.0], [-1.7, 30.0], [-1.7, 30.3], [-2.15, 30.3], [-2.15, 30.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Bugesera"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.55, 30.0], [-1.95, 30.0], [-1.95, 30.6], [-2.55, 30.6], [-2.55, 30.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Rwamagana"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.35, 30.0], [-1.8, 30.0], [-1.8, 30.8], [-2.35, 30.8], [-2.35, 30.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Ngoma"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.4, 30.0], [-1.95, 30.0], [-1.95, 30.5], [-2.4, 30.5], [-2.4, 30.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Kayonza"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.35, 30.4], [-1.95, 30.4], [-1.95, 31.0], [-2.35, 31.0], [-2.35, 30.4]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Karongi"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.3, 29.0], [-1.8, 29.0], [-1.8, 29.5], [-2.3, 29.5], [-2.3, 29.0]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Nyabihu"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.25, 29.2], [-1.7, 29.2], [-1.7, 29.7], [-2.25, 29.7], [-2.25, 29.2]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Gakenke"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.1, 29.7], [-1.65, 29.7], [-1.65, 30.3], [-2.1, 30.3], [-2.1, 29.7]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Musanze"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-1.75, 29.4], [-1.2, 29.4], [-1.2, 29.9], [-1.75, 29.9], [-1.75, 29.4]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Burera"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.0, 29.3], [-1.15, 29.3], [-1.15, 29.8], [-2.0, 29.8], [-2.0, 29.3]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Gicumbi"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-2.05, 29.6], [-1.2, 29.6], [-1.2, 30.2], [-2.05, 30.2], [-2.05, 29.6]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Rubavu"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-1.75, 29.0], [-1.2, 29.0], [-1.2, 29.5], [-1.75, 29.5], [-1.75, 29.0]
+        ]]
+      }
+    }
+  ]
+}
