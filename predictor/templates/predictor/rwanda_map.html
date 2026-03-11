@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rwanda Vehicle Client Distribution Map</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .map-container {
+      height: 700px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .stats-card {
+      transition: transform 0.2s ease-in-out;
+    }
+    .stats-card:hover {
+      transform: translateY(-2px);
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .table-responsive {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'data_exploration' %}">
+        <i class="fas fa-car me-2"></i>Vehicle ML Dashboard
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'data_exploration' %}">
+              <i class="fas fa-chart-line me-1"></i>Data Exploration
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'regression_analysis' %}">
+              <i class="fas fa-chart-bar me-1"></i>Regression
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'classification_analysis' %}">
+              <i class="fas fa-tags me-1"></i>Classification
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'clustering_analysis' %}">
+              <i class="fas fa-project-diagram me-1"></i>Clustering
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'rwanda_map' %}">
+              <i class="fas fa-map me-1"></i>Rwanda Map
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body text-center">
+            <h1 class="display-5 fw-bold text-primary mb-2">
+              <i class="fas fa-map-marked-alt me-3"></i>Rwanda Vehicle Client Distribution
+            </h1>
+            <p class="lead text-muted mb-0">
+              Interactive geographic visualization of vehicle clients across Rwanda's districts
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+      <div class="col-md-4 mb-3">
+        <div class="card stats-card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <div class="text-primary mb-2">
+              <i class="fas fa-users fa-2x"></i>
+            </div>
+            <h3 class="fw-bold">{{ total_clients }}</h3>
+            <p class="text-muted mb-0">Total Clients</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card stats-card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <div class="text-success mb-2">
+              <i class="fas fa-map-pin fa-2x"></i>
+            </div>
+            <h3 class="fw-bold">{{ total_districts }}</h3>
+            <p class="text-muted mb-0">Districts Covered</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card stats-card border-0 shadow-sm h-100">
+          <div class="card-body text-center">
+            <div class="text-info mb-2">
+              <i class="fas fa-globe-africa fa-2x"></i>
+            </div>
+            <h3 class="fw-bold">{{ total_provinces }}</h3>
+            <p class="text-muted mb-0">Provinces Covered</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map and Statistics -->
+    <div class="row">
+      <!-- Map Section -->
+      <div class="col-lg-8 mb-4">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white border-bottom py-3">
+            <h5 class="mb-0 fw-bold">
+              <i class="fas fa-map me-2 text-primary"></i>
+              Geographic Distribution Map
+            </h5>
+          </div>
+          <div class="card-body p-0">
+            <div class="map-container">
+              {{ rwanda_map|safe }}
+            </div>
+            <div class="p-3 bg-light border-top">
+              <div class="alert alert-info mb-0" role="alert">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>How to read the map:</strong> Circle size and color indicate client density. 
+                <span class="badge bg-success">Green</span> = Low, 
+                <span class="badge bg-warning">Orange</span> = Medium, 
+                <span class="badge bg-danger">Red</span> = High distribution. 
+                Hover over circles for detailed information.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistics Tables -->
+      <div class="col-lg-4 mb-4">
+        <!-- District Statistics -->
+        <div class="card border-0 shadow-sm mb-3">
+          <div class="card-header bg-white border-bottom py-3">
+            <h6 class="mb-0 fw-bold">
+              <i class="fas fa-chart-bar me-2 text-success"></i>
+              Top Districts by Client Count
+            </h6>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              {{ district_stats|safe }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Province Statistics -->
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white border-bottom py-3">
+            <h6 class="mb-0 fw-bold">
+              <i class="fas fa-globe me-2 text-info"></i>
+              Clients by Province
+            </h6>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              {{ province_stats|safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white border-bottom py-3">
+            <h5 class="mb-0 fw-bold">
+              <i class="fas fa-info-circle me-2 text-primary"></i>
+              About This Visualization
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="fw-bold text-primary">Data Source</h6>
+                <p class="text-muted">This visualization uses vehicle transaction data from the ML dataset, showing client distribution across Rwanda's administrative districts.</p>
+                
+                <h6 class="fw-bold text-primary">Map Features</h6>
+                <ul class="text-muted">
+                  <li>Interactive district boundaries with clear borders</li>
+                  <li>Color-coded client density indicators</li>
+                  <li>District labels and client count markers</li>
+                  <li>Responsive design for all screen sizes</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h6 class="fw-bold text-primary">Technical Details</h6>
+                <ul class="text-muted">
+                  <li>Powered by Folium mapping library</li>
+                  <li>GeoJSON district boundaries</li>
+                  <li>Real-time data processing</li>
+                  <li>Bootstrap 5 responsive framework</li>
+                </ul>
+                
+                <h6 class="fw-bold text-primary">Last Updated</h6>
+                <p class="text-muted">Generated dynamically from the latest dataset</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-3 mt-5">
+    <div class="container-fluid text-center">
+      <p class="mb-0">
+        <i class="fas fa-car me-2"></i>
+        Vehicle ML Dashboard © 2024 | Rwanda Geographic Distribution Analysis
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

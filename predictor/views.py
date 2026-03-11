@@ -104,3 +104,30 @@ def clustering_analysis(request):
         except Exception as e:
             context["error"] = str(e)
     return render(request, "predictor/clustering_analysis.html", context)
+
+
+def rwanda_map_view(request):
+    """Dedicated view for Rwanda map showing vehicle client distribution by district"""
+    df = pd.read_csv("dummy-data/vehicles_ml_dataset.csv")
+    
+    # Get district statistics
+    district_stats = df['district'].value_counts().reset_index()
+    district_stats.columns = ['district', 'client_count']
+    
+    # Get province statistics
+    province_stats = df['province'].value_counts().reset_index()
+    province_stats.columns = ['province', 'client_count']
+    
+    # Generate map
+    rwanda_map_html = rwanda_map_exploration(df)
+    
+    context = {
+        "rwanda_map": rwanda_map_html,
+        "district_stats": district_stats.to_html(classes="table table-striped table-hover", index=False),
+        "province_stats": province_stats.to_html(classes="table table-striped table-hover", index=False),
+        "total_clients": len(df),
+        "total_districts": district_stats['district'].nunique(),
+        "total_provinces": province_stats['province'].nunique()
+    }
+    
+    return render(request, "predictor/rwanda_map.html", context)

@@ -8,4 +8,5 @@ urlpatterns = [
     path("regression_analysis/", views.regression_analysis, name="regression_analysis"),
     path("classification_analysis/", views.classification_analysis, name="classification_analysis"),
     path("clustering_analysis/", views.clustering_analysis, name="clustering_analysis"),
+    path("rwanda_map/", views.rwanda_map_view, name="rwanda_map"),
 ]
